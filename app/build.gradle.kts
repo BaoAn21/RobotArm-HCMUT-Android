@@ -69,4 +69,8 @@ dependencies {
     // Needed for permission handling in Compose
     implementation("com.google.accompanist:accompanist-permissions:0.34.0")
     implementation("com.google.mlkit:face-detection:16.1.7")
+
+    // TensorFlow
+    implementation("org.tensorflow:tensorflow-lite-task-vision:0.4.4")
+    implementation("org.tensorflow:tensorflow-lite-gpu:2.9.0")
 }
