@@ -46,7 +46,7 @@ class MainActivity : ComponentActivity() {
                     "menu" -> RobotArmMenu(
                         onFaceTrackingClick = { currentScreen = "face_tracking" },
                         onObjectDetectionClick = { currentScreen = "object_detection" }, // <--- THE NEW LINK
-                        onColorTrackingClick = { /* TODO */ }
+                        onColorTrackingClick = { currentScreen = "color_tracking" }
                     )
 
                     // Route 1: The Face Tracker (ML Kit)
@@ -56,6 +56,9 @@ class MainActivity : ComponentActivity() {
 
                     // Route 2: The Object Detector (TFLite)
                     "object_detection" -> ObjectDetectorScreen(
+                        onBack = { currentScreen = "menu" }
+                    )
+                    "color_tracking" -> ColorTrackingScreen(
                         onBack = { currentScreen = "menu" }
                     )
                 }
@@ -117,11 +120,9 @@ fun RobotArmMenu(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // BUTTON 3: COLOR TRACKING (Placeholder)
             MenuButton(
                 text = "Color Tracking",
                 onClick = {
-                    Toast.makeText(context, "Color Tracking Selected", Toast.LENGTH_SHORT).show()
                     onColorTrackingClick()
                 }
             )

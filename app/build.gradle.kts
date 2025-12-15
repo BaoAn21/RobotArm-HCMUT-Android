@@ -18,6 +18,11 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags += "-std=c++11"
+            }
+        }
     }
 
     buildTypes {
@@ -39,6 +44,13 @@ android {
     buildFeatures {
         compose = true
     }
+    externalNativeBuild {
+        cmake {
+            // POINT THIS TO YOUR FILE
+            path = file("src/main/jni/CMakeLists.txt")
+        }
+    }
+    ndkVersion = "27.0.12077973"
 }
 
 dependencies {
