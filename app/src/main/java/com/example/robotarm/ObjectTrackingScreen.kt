@@ -135,7 +135,7 @@ fun ObjectTrackingScreen(onBack: () -> Unit) {
                             val outputY = if (abs(errY) < threshold) 0f else errY
 
                             // 3. Send the calculated values
-                            UsbServer.sendData(outputX, outputY)
+                            UsbServer.sendData(outputX, outputY, 0f)
 
                             // 4. Update UI Status
                             // We consider it "LOCKED" (Green) only if both are sending 0

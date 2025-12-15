@@ -62,12 +62,12 @@ object UsbServer {
         }
     }
 
-    fun sendData(x: Float, y: Float) {
+    fun sendData(x: Float, y: Float, z: Float) {
         scope.launch {
             try {
                 // Only send if writer exists and no error is detected
                 if (writer != null && !writer!!.checkError()) {
-                    writer?.println("${x.toInt()},${y.toInt()}")
+                    writer?.println("${x.toInt()},${y.toInt()},${z.toInt()}")
                 }
             } catch (e: Exception) {
                 Log.e("USB", "Send Error", e)
