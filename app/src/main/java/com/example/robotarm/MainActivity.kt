@@ -45,7 +45,7 @@ class MainActivity : ComponentActivity() {
                 when (currentScreen) {
                     "menu" -> RobotArmMenu(
                         onFaceTrackingClick = { currentScreen = "face_tracking" },
-                        onObjectDetectionClick = { currentScreen = "object_detection" }, // <--- THE NEW LINK
+                        onObjectDetectionClick = { currentScreen = "stream_video" }, // <--- THE NEW LINK
                         onColorTrackingClick = { currentScreen = "color_tracking" }
                     )
 
@@ -55,7 +55,7 @@ class MainActivity : ComponentActivity() {
                     )
 
                     // Route 2: The Object Detector (TFLite)
-                    "object_detection" -> ObjectDetectorScreen(
+                    "stream_video" -> CameraStreamScreen (
                         onBack = { currentScreen = "menu" }
                     )
                     "color_tracking" -> ColorTrackingScreen(
@@ -114,7 +114,7 @@ fun RobotArmMenu(
 
             // BUTTON 2: OBJECT DETECTION (TFLite) -- NEW!
             MenuButton(
-                text = "Object Detection (Ball/Bottle)",
+                text = "Stream Video",
                 onClick = onObjectDetectionClick
             )
 
